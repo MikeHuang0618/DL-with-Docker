@@ -28,8 +28,30 @@ This guide aims to walk you through deploying an environment using Docker contai
 Ensure Docker is installed on your Windows system. For installation instructions, visit the [Docker Desktop documentation](https://docs.docker.com/desktop/).
 
 #### Windows
-
 ![Docker Setup](https://raw.githubusercontent.com/MikeHuang0618/DL-with-Docker/main/images/Install_Docker.jpg)
+
+#### Linux
+```bash
+1. sudo apt-get install docker.io
+
+# {USERACCOUNT} is your user name. Ex. sudo usermod -aG docker mike
+2. sudo usermod -aG docker {USERACCOUNT}
+
+# Create a folder named docker.service.d under the /etc/systemd/system folder and then create a new *.conf file in the docker.service.d folder.
+# Edit the *.conf
+# [Service]
+# ExecStart=
+# ExecStart=/usr/bin/dockerd --containerd=/run/containerd/containerd.sock
+3. sudo mkdir /etc/systemd/system/docker.service.d/
+4. sudo nano /etc/systemd/system/docker.service.d/*.conf
+
+# Add configuration to the /etc/docker/daemon.json file (create a new one if it doesn’t exist)
+# {
+#   "hosts": ["unix:///var/run/docker.sock", "tcp://0.0.0.0:2375"]
+# }
+5. sudo nano /etc/docker/daemon.json
+6. systemctl daemon-reload && systemctl restart docker.service
+```
 
 ### Step 2: Build the Docker Image
 
