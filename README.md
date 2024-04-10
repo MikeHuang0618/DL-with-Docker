@@ -29,7 +29,7 @@ Ensure Docker is installed on your Windows system. For installation instructions
 
 #### Windows
 
-![Docker Setup](https://plusteko365.sharepoint.com/:i:/s/AVIImageRecognitionDepartment/EU9B_fCb07VHkOY1oV-HBf8BGrhFHn6LtTSuSv6F0Qs6KA?e=BWsQHe)
+![Docker Setup](https://raw.githubusercontent.com/MikeHuang0618/DL-with-Docker/main/images/Install_Docker.jpg)
 
 ### Step 2: Build the Docker Image
 
